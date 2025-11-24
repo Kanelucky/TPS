@@ -1,1 +1,1 @@
-A EndstoneMC plugin.
+An EndstoneMC plugin.
