@@ -12,6 +12,11 @@ class TPS(Plugin):
             "usages": ["/tps"],
         }
     }
+    if tps >= 18:
+        self.logger.info(f"§eServer TPS is LOW {tps:.2f}")
+    else:
+        self.logger.info(f"§eServer TPS is LOW {tps:.2f}")
+        
     def on_command(self, sender: CommandSender, command: Command, args: list[str]) -> bool:
         if command.name == "tps":
             tps = self.server.average_tps
@@ -19,10 +24,8 @@ class TPS(Plugin):
                 sender.send_message(f"§eServer TPS: §a{tps:.2f}")
             elif tps >= 18:
                 sender.send_message(f"§eServer TPS: §e{tps:.2f}")
-                self.logger.info(f"§eServer TPS is LOW {tps:.2f}")
             else:
                 sender.send_message(f"§eServer TPS: §c{tps:.2f}")
-                self.logger.info(f"§eServer TPS is LOW {tps:.2f}")
                 
             return True
 
